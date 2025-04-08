@@ -115,18 +115,6 @@ Always ensure you have the correct IDs before attempting operations that require
 localhost:3000/api/v1
 ```
 
----
-
-### Purpose
-
-This sample data is provided to demonstrate how restaurants and their reviews can be structured and stored in the database. The owner of all restaurants is named `testUser` for simplicity.
-
-## Base URL
-
-```
-localhost:3000/api/v1
-```
-
 ## Endpoints
 
 ### Restaurants
