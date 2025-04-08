@@ -72,7 +72,7 @@ PORT=3000
 JWT_SECRET=your_jwt_secret_here
 ```
 
-- Replace `your_jwt_secret_here` with your desired secret key.
+- Replace `your_jwt_secret_here` or use the one that I send to HR.
 
 4. **Start the application with sample data:**
 
