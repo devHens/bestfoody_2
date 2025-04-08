@@ -8,6 +8,7 @@ For sorting, a request query `orderBy` is used. For example, `rating_desc` will 
 
 MongoDB was chosen for its flexibility in handling dynamic and nested data, making it ideal for storing restaurant reviews with optional fields like images, ratings, and comments without a schema and also data type like an array of objects like pictures.
 
+Also using **yarn** NOT **npm** as the package manager
 ## 🔐 Security
 
 - **Helmet**: Sets secure HTTP headers to protect against common vulnerabilities like XSS, clickjacking, and MIME-type sniffing.
