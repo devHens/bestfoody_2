@@ -1,0 +1,1582 @@
+{
+	"info": {
+		"_postman_id": "831d6c56-35a6-4570-a727-3ae4affd7184",
+		"name": "BestFoody",
+		"description": "Please use `bestfoodydev` as the bearer token. I have made an exception to skip the JWT authentication to keep it simple, as I did not want to implement user authentication.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37440036"
+	},
+	"item": [
+		{
+			"name": "Restaurant",
+			"item": [
+				{
+					"name": "Get Restaurants",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bestfoodydev",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/restaurants",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "",
+									"description": "this is use for search functionality, ",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "",
+									"description": "this is use for search functionality, ",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "",
+									"description": "name,averageRating,createdAt - Example name_desc, name_asc",
+									"disabled": true
+								},
+								{
+									"key": "hasPicture",
+									"value": "",
+									"description": "0 - no picture, 1-picture",
+									"disabled": true
+								},
+								{
+									"key": "averageRating",
+									"value": "",
+									"description": "This will show result between averageRating -averageRating +1, example if 0 , show 0 -1 average ratings",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "",
+									"description": "default = 10",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"description": "default = 1",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This is a public api which allow everyone to run.  \nQuery Params are optional.\n\nThis api shows all the restaurants along with the average rating. It will also show 3 latest reviews."
+					},
+					"response": [
+						{
+							"name": "Without any filter or sorting but with pagination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants?limit=5&page=1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "",
+											"description": "this is use for search functionality, ",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "",
+											"description": "this is use for search functionality, ",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "",
+											"description": "name,averageRating,createdAt - Example name_desc, name_asc",
+											"disabled": true
+										},
+										{
+											"key": "hasPicture",
+											"value": "",
+											"description": "0 - no picture, 1-picture",
+											"disabled": true
+										},
+										{
+											"key": "averageRating",
+											"value": "",
+											"description": "This will show result between averageRating -averageRating +1, example if 0 , show 0 -1 average ratings",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"description": "default = 10"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "page = 1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "With filter of picture",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants?hasPicture=1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "",
+											"description": "this is use for search functionality, ",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "",
+											"description": "this is use for search functionality, ",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "",
+											"description": "name,averageRating,createdAt - Example name_desc, name_asc",
+											"disabled": true
+										},
+										{
+											"key": "hasPicture",
+											"value": "1",
+											"description": "0 - no picture, 1-picture"
+										},
+										{
+											"key": "averageRating",
+											"value": "",
+											"description": "This will show result between averageRating -averageRating +1, example if 0 , show 0 -1 average ratings",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "",
+											"description": "default = 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "page = 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Filter by category and name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants?category=Ita&name=oli",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "Ita",
+											"description": "This is used for the search functionality, allowing substring searches as it utilizes MongoDB regex. Ita - provide every data with category Ita*"
+										},
+										{
+											"key": "name",
+											"value": "oli",
+											"description": "This is used for the search functionality, allowing substring searches as it utilizes MongoDB regex. Ita - provide every data with category olki*"
+										},
+										{
+											"key": "orderBy",
+											"value": "",
+											"description": "name,averageRating,createdAt - Example name_desc, name_asc",
+											"disabled": true
+										},
+										{
+											"key": "hasPicture",
+											"value": "",
+											"description": "0 - no picture, 1-picture",
+											"disabled": true
+										},
+										{
+											"key": "averageRating",
+											"value": "",
+											"description": "This will show result between averageRating -averageRating +1, example if 0 , show 0 -1 average ratings",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "",
+											"description": "default = 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "page = 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Filter by average rating",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants?averageRating=4",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "",
+											"description": "this is use for search functionality, ",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "",
+											"description": "this is use for search functionality, ",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "",
+											"description": "name,averageRating,createdAt - Example name_desc, name_asc",
+											"disabled": true
+										},
+										{
+											"key": "hasPicture",
+											"value": "",
+											"description": "0 - no picture, 1-picture",
+											"disabled": true
+										},
+										{
+											"key": "averageRating",
+											"value": "4",
+											"description": "This will show result between averageRating -averageRating +1, example if 0 , show 0 -1 average ratings"
+										},
+										{
+											"key": "limit",
+											"value": "",
+											"description": "default = 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "page = 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Sort them by name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants?orderBy=name_asc",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "",
+											"description": "this is use for search functionality, ",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "",
+											"description": "this is use for search functionality, ",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "name_asc",
+											"description": "name,averageRating,createdAt - Example name_desc, name_asc"
+										},
+										{
+											"key": "hasPicture",
+											"value": "",
+											"description": "0 - no picture, 1-picture",
+											"disabled": true
+										},
+										{
+											"key": "averageRating",
+											"value": "",
+											"description": "This will show result between averageRating -averageRating +1, example if 0 , show 0 -1 average ratings",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "",
+											"description": "default = 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "page = 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Create Restaurant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bestfoodydev",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"description": "mandatory",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "",
+									"description": "mandatory",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "images",
+									"description": "Optional. Can be urls seperated by comma or files, maximum five files",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/restaurants",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "testCat2",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This API is used to create a new restaurant entry. It requires the `name` and `category` of the restaurant to be provided in the request body. Optionally, you can also provide images associated with the restaurant. The images can either be URLs or files (with a maximum of five files).\n\n`form-data` is used because it allows sending both text data (like `name` and `category`) and files (like images) in the same request."
+					},
+					"response": [
+						{
+							"name": "Create Restaurant without images",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "First Restoran",
+											"description": "mandatory",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "Testing",
+											"description": "mandatory",
+											"type": "text"
+										},
+										{
+											"key": "images",
+											"description": "Optional. Can be urls seperated by comma or files, maximum five files",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Create Restaurant with Images",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Second Restoran",
+											"description": "mandatory",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "Second test",
+											"description": "mandatory",
+											"type": "text"
+										},
+										{
+											"key": "images",
+											"description": "Optional. Can be urls seperated by comma or files, maximum five files",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/food.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Create Restaurant with Multiple image url",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Multiple Images",
+											"description": "mandatory",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "Third",
+											"description": "mandatory",
+											"type": "text"
+										},
+										{
+											"key": "images",
+											"value": "https://fastly.picsum.photos/id/804/200/300.jpg?hmac=iNvnrzdzAcNx5ZKyG3JWnH4EIYwl-9Lp_4WqWA4R5mo,https://fastly.picsum.photos/id/477/200/300.jpg?hmac=Y-uy4_ZZZ6HOZCxdiN04OOypBZ3y2dY2gAfu9MvZMSE",
+											"description": "Optional. Can be urls seperated by comma or files, maximum five files",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Update Restaurant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bestfoodydev",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"name\":\"\",\r\n \"category\":\"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/restaurants/:restaurantId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								":restaurantId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "restaurantId",
+									"value": ""
+								}
+							]
+						},
+						"description": "``` json\n{\n  \"name\": \"Update Name\",\n  \"category\" : \"New Category\",\n  \"pictures\" :  [\n            {\n                \"data\": \"newImages.jpg\" // this will replace the entire pictues.\n            }\n        ]\n}\n\n ```\n\nPlease note that this is a **PUT** request. When an update occurs, it will replace the entire object rather than just modifying one property.\n\nOnly able to update **name , category and pictures.**\n\nPlease also run GET Restaurants and use one of the restaurants's **_id** as the path variable **id.**"
+					},
+					"response": [
+						{
+							"name": "Update Restaurant",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Update owner",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"name\":\"\",\r\n \"category\":\"\",\r\n \"owner\":\"new owner\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete Restaurant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bestfoodydev",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/restaurants/:restaurantId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								":restaurantId"
+							],
+							"variable": [
+								{
+									"key": "restaurantId",
+									"value": ""
+								}
+							]
+						},
+						"description": "Please also run GET Restaurants and use one of the restaurants's **_id** as the path variable **id.**"
+					},
+					"response": [
+						{
+							"name": "Delete Restaurant",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId"
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get Single Restaurant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/restaurants/:restaurantId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								":restaurantId"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "",
+									"description": "this is for the reviews, default= 10",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"description": "this is for the reviews, default= 1",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "",
+									"description": "createdAt ,rating,- Example: rating_desc, rating_asc",
+									"disabled": true
+								},
+								{
+									"key": "rating",
+									"value": "",
+									"description": "filter by exact rating",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "restaurantId",
+									"value": ""
+								}
+							]
+						},
+						"description": "This retrive a restaurant's details and the reviews along.\n\nThe filtering, sorting and pagination (query params) is for the reviews.\n\nPlease also run GET Restaurants and use one of the restaurants's **_id** as the path variable **id.**"
+					},
+					"response": [
+						{
+							"name": "Sort it by Highest rating",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId?orderBy=rating_desc",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "",
+											"description": "this is for the reviews, default= 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "this is for the reviews, default= 1",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "rating_desc",
+											"description": "createdAt ,rating,- Example: rating_desc, rating_asc"
+										},
+										{
+											"key": "rating",
+											"value": "",
+											"description": "filter by exact rating",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "show restaurant details with reviews with rating 4",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId?rating=4",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "",
+											"description": "this is for the reviews, default= 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "this is for the reviews, default= 1",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "",
+											"description": "createdAt ,rating,- Example: rating_desc, rating_asc",
+											"disabled": true
+										},
+										{
+											"key": "rating",
+											"value": "4",
+											"description": "filter by exact rating"
+										}
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Create Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bestfoodydev",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rating",
+									"value": "",
+									"description": "1-5 , mandatory",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "comment",
+									"value": "",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "images",
+									"description": "Upload image as buffer, can upload url string as well must be seperated by comma exp : url1.com . url2.com",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/restaurants/:restaurantId/review",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								":restaurantId",
+								"review"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "restaurantId",
+									"value": "",
+									"description": "restaurant _id"
+								}
+							]
+						},
+						"description": "This API is used to create a new review for a restaurant. The `rating` (1-5) are required in the request body and `restaurantId` as a path variable. You can also provide an optional `comment` and images associated with the review. The images can either be URLs or files, with a maximum of five images.\n\n`form-data` is used because it allows sending both text data (like `name` and `category`) and files (like images) in the same request.\n\n  \nPlease also run GET Restaurants and use one of the restaurants's **_id** as the path variable **id.**"
+					},
+					"response": [
+						{
+							"name": "Create Review with just Rating",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rating",
+											"value": "5",
+											"description": "1-5 , mandatory",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "",
+											"description": "optional",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "images",
+											"description": "Upload image as buffer, can upload url string as well must be seperated by comma exp : url1.com . url2.com",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId/review",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId",
+										"review"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": "",
+											"description": "restaurant _id"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Create Review with comment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rating",
+											"value": "3",
+											"description": "1-5 , mandatory",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "Just average food",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "images",
+											"description": "Upload image as buffer, can upload url string as well must be seperated by comma exp : url1.com . url2.com",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId/review",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId",
+										"review"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": "",
+											"description": "restaurant _id"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Create Review with images",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rating",
+											"value": "1",
+											"description": "1-5 , mandatory",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "Horrible food",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "images",
+											"value": "https://fastly.picsum.photos/id/477/200/300.jpg?hmac=Y-uy4_ZZZ6HOZCxdiN04OOypBZ3y2dY2gAfu9MvZMSE",
+											"description": "Upload image as buffer, can upload url string as well must be seperated by comma exp : url1.com . url2.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId/review",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId",
+										"review"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": "",
+											"description": "restaurant _id"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get Restaurant Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/restaurants/:restaurantId/review",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								":restaurantId",
+								"review"
+							],
+							"query": [
+								{
+									"key": "orderBy",
+									"value": "",
+									"description": "rating,createdAt - Example createdAt _desc, createdAt_asc",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"description": "default = 1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "",
+									"description": "default= 10",
+									"disabled": true
+								},
+								{
+									"key": "rating",
+									"value": "",
+									"description": "0-5, return exact review ratings",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "restaurantId",
+									"value": "",
+									"description": "restaurant Objectid"
+								}
+							]
+						},
+						"description": "Please also run GET Restaurants and use one of the restaurants's **_id** as the path variable **id.**"
+					},
+					"response": [
+						{
+							"name": "Get Restaurant Reviews order by highest",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId/review?orderBy=rating_desc",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId",
+										"review"
+									],
+									"query": [
+										{
+											"key": "orderBy",
+											"value": "rating_desc",
+											"description": "rating,createdAt - Example createdAt _desc, createdAt_asc"
+										},
+										{
+											"key": "page",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "rating",
+											"value": "",
+											"description": "0-5, return exact review ratings",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": "",
+											"description": "restaurant Objectid"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Get Restaurant Reviews , only show 4 rating reviews",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId/review?rating=4",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId",
+										"review"
+									],
+									"query": [
+										{
+											"key": "orderBy",
+											"value": "",
+											"description": "rating,createdAt - Example createdAt _desc, createdAt_asc",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "default = 1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "",
+											"description": "default= 10",
+											"disabled": true
+										},
+										{
+											"key": "rating",
+											"value": "4",
+											"description": "0-5, return exact review ratings"
+										}
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": "",
+											"description": "restaurant Objectid"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bestfoodydev",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/restaurants/:restaurantId/review/:reviewId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								":restaurantId",
+								"review",
+								":reviewId"
+							],
+							"variable": [
+								{
+									"key": "restaurantId",
+									"value": "",
+									"description": "restaurant _id"
+								},
+								{
+									"key": "reviewId",
+									"value": "",
+									"description": "review _id"
+								}
+							]
+						},
+						"description": "Please also run GET Restaurants Reviews and use one of the restaurantId **and the _id** as the path variable **id.**\n\nOnly owner of the restaurant and owner of the review able to delete"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bestfoodydev",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\":\"\",\r\n    \"comment\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/restaurants/:restaurantId/review/:reviewId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								":restaurantId",
+								"review",
+								":reviewId"
+							],
+							"variable": [
+								{
+									"key": "restaurantId",
+									"value": "",
+									"description": "Review's restaurantId"
+								},
+								{
+									"key": "reviewId",
+									"value": "",
+									"description": "Review's _id"
+								}
+							]
+						},
+						"description": "Please also run GET Restaurants Reviews and use one of the restaurantId **and the _id** as the path variable **id.**\n\nOnly able to edit a review before 15 minutes has passed.\n\nPlease note that this is a **PUT** request. When an update occurs, it will replace the entire object rather than just modifying one property.\n\nOnly able to update **comment, rating and pictures.**"
+					},
+					"response": [
+						{
+							"name": "Update Review",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\":\"\",\r\n    \"comment\":\"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/restaurants/:restaurantId/review/:reviewId",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										":restaurantId",
+										"review",
+										":reviewId"
+									],
+									"variable": [
+										{
+											"key": "restaurantId",
+											"value": "",
+											"description": "Review's restaurantId"
+										},
+										{
+											"key": "reviewId",
+											"value": "",
+											"description": "Review's _id"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}
