@@ -1,16 +1,17 @@
 # BestFoody API
-
 BestFoody API provides a set of RESTful endpoints for managing restaurants and reviews. This API allows creating, retrieving, updating, and deleting restaurant entries and reviews. It also supports filtering, sorting, and pagination for efficient data access.
 
 For pagination, the default will always be `page = 1` and `limit = 10`.
 
 For sorting, a request query `orderBy` is used. For example, `rating_desc` will sort results from highest to lowest rating. If there is a typo such as `rating_anything_else`, it will sort by ascending order. The reason for handling invalid sorting directions (e.g., `rating_adasdasd`) by defaulting to ascending (`1`) is to ensure that the API always returns data, even if there's a typo or incorrect value in the `orderBy` parameter. This approach prevents errors from breaking the request and guarantees that the user still receives results, even if not sorted as intended. This ensures a more resilient user experience where the system gracefully handles unexpected input.
 
-MongoDB was chosen for its flexibility in handling dynamic and nested data, making it ideal for storing restaurant reviews with optional fields like images, ratings, and comments without a schema and also data type like an array of objects like pictures.
-
-Also using **yarn** NOT **npm** as the package manager
-## 🔐 Security
-
+## Tech Stack
+1. NodeJs( 22.14.0)
+2. MongoDB was chosen for its flexibility in handling dynamic and nested data, making it ideal for storing restaurant reviews with optional fields like images, ratings, and comments without a schema and also data type like an array of objects like pictures.
+3. Docker compose
+4. yarn (package manager)
+   
+## Security
 - **Helmet**: Sets secure HTTP headers to protect against common vulnerabilities like XSS, clickjacking, and MIME-type sniffing.
 - **CORS**: Restricts which external domains can access the API, helping prevent unauthorized cross-origin requests.
 - **Authentication**: Currently uses JWT (see section below).
