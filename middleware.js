@@ -2,24 +2,22 @@ import dotenv from "dotenv";
 import multer from "multer";
 import path from "path";
 import { verifyToken } from "./auth.js";
+import { config } from "process";
 
 dotenv.config();
-const JWT_SECRET = process.env.JWT_SECRET;
-
+const JWT_SECRET = config.JWT_SECRET;
 const jwtAuthentication = (req, res, next) => {
   const token = req.headers["authorization"]?.split(" ")[1];
   if (!token) {
-    return res
-      .status(401)
-      .json({ error: "Access Denied. No token provided." });
+    return res.status(401).json({ error: "Access Denied. No token provided." });
   }
   try {
-    if (token =="bestfoodydev"){
+    if (token == "bestfoodydev") {
       req.user = global.dummyUser;
       return next();
     }
     const decoded = verifyToken(token, JWT_SECRET);
-    if(decoded.valid === false) {
+    if (decoded.valid === false) {
       return res.status(401).json({ error: "Invalid token." });
     }
     req.user = decoded.payload;

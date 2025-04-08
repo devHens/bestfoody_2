@@ -8,6 +8,14 @@ For sorting, a request query `orderBy` is used. For example, `rating_desc` will 
 
 MongoDB was chosen for its flexibility in handling dynamic and nested data, making it ideal for storing restaurant reviews with optional fields like images, ratings, and comments without a schema and also data type like an array of objects like pictures.
 
+## 🔐 Security
+
+- **Helmet**: Sets secure HTTP headers to protect against common vulnerabilities like XSS, clickjacking, and MIME-type sniffing.
+- **CORS**: Restricts which external domains can access the API, helping prevent unauthorized cross-origin requests.
+- **Authentication**: Currently uses JWT (see section below).
+- **Authorization**: Role-based access control planned — will determine which endpoints a user can access based on `req.user.role`. (FUTURE PLANS)
+- **Rate Limiting**: Limits the number of requests from a single IP within a specific timeframe to protect the API from abuse and DDoS attacks. (FUTURE PLANS)
+
 ## Authentication
 
 For authentication, there is a middleware that uses JWT to verify users. However, as this project does not focus on user management, a dummy user is created globally.
@@ -61,7 +69,6 @@ cd bestfoody_2
 ```
 MONGO_URI=mongodb://bestfoody_mongodb:27017/bestfoody
 PORT=3000
-NODE_ENV=development
 JWT_SECRET=your_jwt_secret_here
 ```
 

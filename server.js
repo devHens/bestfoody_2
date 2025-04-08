@@ -6,13 +6,13 @@ import restoranRoutes from "./restaurant/routes.js";
 import reviewRoutes from "./review/routes.js";
 
 import { connectMongo } from "./db.js";
-import { generateToken, verifyToken } from "./auth.js";
-import { uploadImages } from "./middleware.js";
+import { config } from "./config.js";
+
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI;
+const PORT = config.PORT;
+const MONGO_URI = config.MONGO_URI;
 const corsOptions = {
   origin: ["http://localhost:3000"],
   methods: "GET,POST,PUT,DELETE",
