@@ -46,7 +46,7 @@ global.dummyUser = {
 1. **Clone the repository:**
 
 ```sh
-git clone git@github.com:devHens/bestfoody.git
+git clone https://github.com/devHens/bestfoody_2.git
 ```
 
 2. **Navigate into the project directory:**
@@ -247,4 +247,5 @@ This application uses sample data to populate the database with restaurants and 
 
 Seed it into database so will have sample data to query.
 The owner of all restaurants is named `testUser`, userId and owner `67f3d7983ff6240012661eef` is for simplicity.
+
 # bestfoody_2
