@@ -6,8 +6,8 @@ For pagination, the default will always be `page = 1` and `limit = 10`.
 For sorting, a request query `orderBy` is used. For example, `rating_desc` will sort results from highest to lowest rating. If there is a typo such as `rating_anything_else`, it will sort by ascending order. The reason for handling invalid sorting directions (e.g., `rating_adasdasd`) by defaulting to ascending (`1`) is to ensure that the API always returns data, even if there's a typo or incorrect value in the `orderBy` parameter. This approach prevents errors from breaking the request and guarantees that the user still receives results, even if not sorted as intended. This ensures a more resilient user experience where the system gracefully handles unexpected input.
 
 ## Tech Stack
-1. NodeJs( 22.14.0)
-2. MongoDB was chosen for its flexibility in handling dynamic and nested data, making it ideal for storing restaurant reviews with optional fields like images, ratings, and comments without a schema and also data type like an array of objects like pictures.
+1. NodeJs( v22.14.0)
+2. MongoDB (v5.2 above) was chosen for its flexibility in handling dynamic and nested data, making it ideal for storing restaurant reviews with optional fields like images, ratings, and comments without a schema and also data type like an array of objects like pictures.
 3. Docker compose
 4. yarn (package manager)
    
